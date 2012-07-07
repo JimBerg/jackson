@@ -1,9 +1,9 @@
 <?php
 /** -------------------------------------------------
  * Theme: jackson.ch
- * Template: Blog Artikel = Single
+ * Template: Blog Archive = Single
  * 
- * Description: Blog Artikel = Einzelseite
+ * Description: Blog Archive = looks like news - just old
  * Author: Jim
  * Version: 3.14159 * daumen
  * 
@@ -32,22 +32,14 @@
          <?php if ( have_posts() ) : ?>
             <div class="content">
                 
-                <span class="meta-nav">
-                    <span class="nav-previous"><?php previous_post_link( '%link', __( '<span class="meta-nav">&larr;</span> Previous' ) ); ?></span>
-                    <span class="nav-next"><?php next_post_link( '%link', __( 'Next <span class="meta-nav">&rarr;</span>' ) ); ?></span>
+                <div class="meta-nav">
+                    <span class="nav-previous"><?php previous_post_link( '%link', __( '<span class="meta-nav">&larr;</span> Älterer Beitrag' ) ); ?></span>
                     <span class="nav-parent-page"><a href="<?php echo home_url(); ?>">Zurück zur Newsseite</a></span>
-                </span>
+                    <span class="nav-next"><?php next_post_link( '%link', __( 'Neuerer Beitrag <span class="meta-nav">&rarr;</span>' ) ); ?></span>
+                </div>
                 
-                <?php while ( have_posts() ) : the_post(); ?>
-                    
-                    <span class="single-header">
-                        <h2 class="single-title"><?php the_title(); ?></h2>
-                        <h2 class="single-date"><?php echo get_the_date(); ?></h2>
-                        <h3 class="single-author"><?php echo get_the_author(); ?></h3>
-                    </span> 
-                
-                    <div class="page-content"><?php the_content(); ?></div>
-                    
+             	<?php while ( have_posts() ) : the_post(); ?>
+                    <?php get_template_part( 'content-news', get_post_format() ); ?>
                 <?php endwhile; ?>
             </div>
          <?php endif; ?>    

@@ -18,7 +18,7 @@
     </div>
     
     <div id="content_wrapper">         
-        <?php if( $subnav = true ) : //TODO ?>
+        <?php if( page_has_subpages( $post->ID ) ) : ?>
             <?php get_sidebar( 'left' ); ?>
         <?php endif; ?>   
     
@@ -46,8 +46,7 @@
 	                    <p><?php echo $meta[ 'event_description' ][0]; ?></p>
 	                </div>
 	                <div class="event-image">
-	                    <?php //TODO: if exists ?>
-	                    <?php echo get_the_post_thumbnail(); ?>
+	                    <?php echo get_the_post_thumbnail( $event->ID ); ?>
 	                </div>
 	            </div>
 	        <?php endforeach; ?>

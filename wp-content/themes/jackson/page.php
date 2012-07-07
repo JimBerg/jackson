@@ -17,7 +17,7 @@
     </div>
         
     <div id="content_wrapper">         
-        <?php if( $subnav = true ) : //TODO ?>
+        <?php if( page_has_subpages( $post->ID ) ) : ?>
             <?php get_sidebar( 'left' ); ?>
         <?php endif; ?>    
          
@@ -30,7 +30,7 @@
                  </span>
              </div>
             <?php endif; ?>   
-             <?php if ( have_posts() ) : ?>
+            <?php if ( have_posts() ) : ?>
                 <div class="content">
                 <h1><?php the_title(); ?></h1>
                 <?php while ( have_posts() ) : the_post(); ?>
@@ -44,7 +44,7 @@
                     </div>
                 <?php endwhile; ?>
                 </div>
-             <?php endif; ?>        
+            <?php endif; ?>        
         </div> 
     </div>
     <div id="footer">Sponsoren</div>

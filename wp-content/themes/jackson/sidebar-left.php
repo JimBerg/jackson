@@ -9,17 +9,36 @@
             $pages = get_pages( "title_li=&child_of=".$post->post_parent ); 
         } else {
             $pages = get_pages( "title_li=&child_of=".$post->ID ); 
+			
+			if( $post->post_type == 'music_post_type' ) {
+				$pages = get_pages( "title_li=&child_of=16" ); 
+			}
+			
+			if( $post->post_type == 'event_post_type' ) {
+				$pages = get_pages( "title_li=&child_of=22" ); 
+			}
         }    
         ?>
         <ul>
-            <?php foreach ($pages as $page ) : ?>
+            <?php foreach ( $pages as $page ) : ?>
                 <?php 
-                    $current_id = $page->ID;
-                    if( $current_id == $page_id ) {
+                	$pagename = get_query_var( 'pagename' );
+					$page->post_name;
+					
+					if( $post->post_type == 'music_post_type' ){
+						 $pagename = 'alben';
+					}
+					
+					if( $post->post_type == 'event_post_type' ){
+						 $pagename = 'events';
+					}					
+                    
+                    if( $pagename == $page->post_name ) {
                         $active = 'active';
                     } else {
                         $active = 'inactive';
                     }
+					
                 ?>
                 <li><a href="<?php echo get_permalink( $page->ID ); ?>" class="subnav-<?php echo $active; ?>"><?php echo $page->post_title; ?></a></li>
             <?php endforeach; ?>

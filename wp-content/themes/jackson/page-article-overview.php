@@ -20,7 +20,7 @@
     </div>
     
     <div id="content_wrapper">         
-        <?php if( $subnav = true ) : //TODO ?>
+        <?php if( page_has_subpages( $post->ID ) ) : ?>
             <?php get_sidebar( 'left' ); ?>
         <?php endif; ?>   
     
@@ -32,8 +32,7 @@
                     <h2 class="teaser-subtitle">20 Juli 2012</h2>  
                  </span>
              </div>
-         <?php endif; ?>     
-          
+         <?php endif; ?>
          <?php if ( have_posts() ) : ?>
             <div class="content"> 
             <h1><?php the_title(); ?></h1>
