@@ -1,0 +1,7 @@
+*.class
+*.pyc
+*.pyo
+.DS_Store
+.htaccess
+.wp-config
+wp-admin

@@ -1,0 +1,261 @@
+ /** -------------------------------------------------
+ * Theme Name: jackson.ch
+ * 
+ * 
+ * Description: Theme for Jackson.ch
+ * Author: Jim
+ * Layout:
+ * Version: 3.14159 * daumen
+ * 
+ * -------------------------------------------------*/ 
+ 
+  /**  
+   * COLORS
+   *     
+   * Background:
+   * braun: #a3897a;
+   * türkisgrün: #7ba7a6;
+   * gelb:
+   * grau:
+   * 
+   * 
+   * Schrift:
+   * dunkel:    #3c3c3c
+   * hell:      #fff                                 
+   * 
+   * 
+   * 
+   * 
+   *                
+   *                                                 *
+  ---------------------------------------------------*/ 
+ 
+ /**  Fonts    					   					 *
+  ---------------------------------------------------*/ 
+  @font-face { font-family: BigNoodle; src: url('fonts/BigNoodle.ttf'); } 
+  @font-face { font-family: BigNoodle; font-weight: bold; src: url('fonts/BigNoodle.ttf'); }
+  
+ /**  General Styles & Typographic Presets 			 *
+  ---------------------------------------------------*/ 
+  html { height: 100%; }
+  
+  body { 
+    height: 100%; 
+    width: 100%; 
+    margin: 0 auto; 
+    color: #fff;  
+    background: #3c3c3c;
+  }
+  
+  a, 
+  a:link, 
+  a:active,
+  a:visited,
+  a:hover { text-decoration: none; color: #3c3c3c; }
+  
+  h1, h2, h3, h4 { font-family: BigNoodle; font-weight: normal; text-transform: uppercase; }
+  h1 { font-size: 140px; line-height: 100px; color: #fff; }
+  h2 { color: #3c3c3c; }
+  h3 { color: #3c3c3c; }
+  
+  div, span, p { font-size: 13px; line-height: 18px; }
+  p { margin: 10px 0 0 0; }
+  
+  ul, li { font-size: 13px; line-height: 18px; list-style: none; display: inline; margin: 0; padding: 0; list-style: none; }
+  
+ .clearer { clear: both; } 
+ .dark { color: #3c3c3c; }
+ .light { color: #fff; }
+
+
+ /** General Layout Styles == All Posts & Pages		 *
+  ---------------------------------------------------*/ 	
+ #background_container { /*yeah we do need all those containers! */
+    height: 100%;  
+    width: 960px; 
+
+    position: fixed;   
+    z-index: 0;
+    
+    margin: 0 50%; 
+    left: -480px;
+    
+    /* provide fallback ?*/
+    background: url('images/test.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+ }
+ 
+ #wrapper {
+    position: absolute;
+    z-index: 10;
+    height: 100%;  
+    width: 100%; 
+    margin: 0 auto;
+ } 
+
+ #content_wrapper { margin: 0 auto; width: 960px; height: 100%; }
+ #content { margin-left: 280px; width: 550px; padding: 0px 65px 0px 65px; position: relative; min-height: 100%; position: relative; float: left; }
+ .content { margin: 140px 0 30px 0; }
+ 
+ #footer { z-index: 100; position: fixed; bottom: 0; /* height: 30px; width: 100%; background: #fff;*/ } /* not yet defined IE CHECK !! */
+ 
+ .more { display: block; clear: both; width: 100%; text-align: right; }
+ .more-link { margin: 15px 0 0px 0; font-family: BigNoodle; }
+ .more-link:hover { color: #fff; }
+ 
+ 
+ /** Teaser
+ ---------------------------------------------------*/     
+ #teaser { width: 225px; height: 120px; background: url('images/teaser_dummy.png') top right no-repeat; position: absolute; right: -26px; top: 120px; }
+ .teaser-content {
+    display: block;
+    padding: 0 0 0 30px;
+  
+    -webkit-transform: rotate( 7deg ); 
+    -moz-transform: rotate( 7deg );
+    -o-transform: rotate( 7deg ); 
+    -ms-transform: rotate( 7deg );
+    transform: rotate( 7deg );
+ }
+ .teaser-title { font-size: 42px; color: #fff; margin: 24px 0 0 0; padding: 0; line-height: 42px;  }
+ .teaser-subtitle { font-size: 24px; margin: 0; padding: 0; color: #0e0e0e; }
+ 
+ 
+ /** Header 
+  ---------------------------------------------------*/ 	
+ #header { height: 120px; background: url( 'images/bknd_header_nav.png' ) top center no-repeat;  width: 100%; position: fixed; padding: 0; top: 0; z-index: 100; } /* fixed or absolute ? dummy */
+ #header h1 { display: inline; font-size: 56px; margin-left: -15px; }
+ #header h1 a{ color: #fff; }
+ /*.single-article_post_type #header h1 a, .blog #header h1 a { color: #7ba7a6; }*/
+ 
+ 
+ /** Main- & Subnavigation
+  ---------------------------------------------------*/     
+ #nav{ 
+    width: 960px; 
+    margin: 0px auto 0 auto; 
+    font-family: BigNoodle;
+    display: block;
+    
+    transform: rotate( -2deg );
+    -ms-transform: rotate( -2deg );
+    -webkit-transform: rotate( -2deg ); 
+    -o-transform: rotate( -2deg ); 
+    -moz-transform: rotate( -2deg ); 
+ }
+ ul#top-nav, ul#top-nav li { display: inline; font-size: 26px; padding: 0 10px; }
+ ul#top-nav li a.nav-inactive { color: #9b9b9b; }
+ ul#top-nav li a.nav-active { color: #fff; font-size: 36px; }
+ ul#top-nav li a:hover { color: #fff; }
+  
+ #subnav.subnav-post { width: 183px; height: 213px; background: url( 'images/subnav_dummy.png' ) top left no-repeat; position: fixed; margin: 460px 0 0 -40px; }
+ #subnav.subnav-page { background: #7ba7a6; width: 183px; height: 80px; position: fixed; margin: 460px 0 0 -40px; }
+ #subnav ul { display: block; margin: 25px; }
+ #subnav li, #subnav li a { color: #fff; font-family: BigNoodle; font-size: 24px; line-height: 28px; display: block; }
+
+
+ /** Content Bereiche
+ * Hintergrundfarben gemäss Artikelname
+ ---------------------------------------------------*/
+ .page-news #content { background: #a3897a; }
+ .page-artikel #content { background: #7ba7a6; }
+ .page-musik #content { background: #7b00a6; }
+ .page-mj-ich #content { background: #00a7a6; }
+ .page-events #content { background: #7ba700; }
+ .page-fanszene #content { background: #7baaaa; }
+ .page-shop #content { background: #aa99aa; }
+ 
+ 
+ /** Detailviews == Single Templates                *
+ ---------------------------------------------------*/ 
+ .single-header { width: 410px; display: block; margin: 25px 0 70px 0; }
+ .single-header > * { margin: 0 0 15px 0; }
+ .single-title { font-size: 64px; line-height: 52px; color: #fff; }
+ .single-title.dark{ color: #3c3c3c; }
+ .single-title span { font-size: 64px; line-height: 52px; display: block; }
+ .single-date { font-size: 36px; }
+ .single-author { font-size: 36px; }
+ 
+ 
+ /**  News == Blogartikel Styles					 *
+  ---------------------------------------------------*/ 
+ .news { border-bottom: 1px solid #ccc; padding: 20px 0; }
+ #content:last-child, .news:last-of-type { border: none; }
+ 
+ .news-header h2 { display: inline; font-size: 28px; line-height: 32px; } /* font size & lineheight check */
+ .news-header h2.news-title a { color: #fff; } /* color */
+ .news-header h2.news-title a:hover { color: #3c3c3c; } 
+ 
+ .news-meta { margin: 0 0 10px 0;  display: block; }
+ .news-meta h3 { font-size: 14px; line-height: 18px; padding: 0; margin: 0 0 10px 0; }
+ .news-meta span { height: 14px; margin: 0; padding: 0 0 0 0px; display: block; } 
+
+ .news-categories,
+ .news-tags,
+ .news-categories a, 
+ .news-tags a { color: #665a54; font-size: 11px; text-transform: uppercase; }
+ .news-categories a:hover, 
+ .news-tags a:hover { color: #3c3c3c; }
+
+ 
+  /**  Artikel Styles                                *
+  ---------------------------------------------------*/
+ .article-excerpt { border-bottom: 1px solid #ccc; padding: 20px 0; display: block; clear: both; float: left; }
+ #content:last-child, .article-excerpt:last-of-type { border: none; }
+ .article-header h2, .article-header h2 span { font-size: 20px; line-height: 20px; margin-bottom: 10px; } /* font size & lineheight check */
+ .article-img { width: 120px; height: 120px; margin: 0px 10px 10px 0; float: left; display: block; background: #333; }
+ .article-content { margin: 0px 0; display: block; float: left; width: 320px; }
+ 
+ 
+  /**  Page == Standard Textpage Styles              *
+  ---------------------------------------------------*/ 
+
+  
+  
+ /**  Album Detail & Album Overview Styles           *
+  ---------------------------------------------------*/ 
+ .album-container { display: block; width: 150px; height: 160px; float: left; margin: 5px; }
+ .album-image { width: 120px; height: 120px; margin: 0; display: block; background: #333; }
+ .album-title h2 { }
+ 
+ 
+  /**  Event Overview Styles                         *
+  ---------------------------------------------------*/ 
+ .event-container { display: block; clear: both; float: left; margin: 0px; border-bottom: 1px solid #ccc; padding: 10px 0; }
+ #content:last-child, .news:last-of-type { border: none; }
+ .event-description { width: 380px; float: left; }
+ .event-description h2 {}
+ .event-description h3 {}
+ .event-image { width: 120px; height: 120px; margin: 0; display: block; background: #333; float: right; }
+ 
+ 
+ /**  Presets for textcontent (filled in by user)    *
+  ---------------------------------------------------*/ 
+ .page-content {}
+ 
+ .page-content h1 { font-size: 28px; }
+ .page-content h2 {}
+ .page-content h3 {}
+ .page-content h4 {}
+ .page-content h5 {}
+ .page-content h6 {} 
+ 
+ .page-content a,
+ .page-content a:link,
+ .page-content a:active,
+ .page-content a:visited {}
+ .page-content a:hover {}
+ 
+ .page-content strong {}
+ .page-content p {}
+ .page-content blockquote {}
+ 
+ .page-content ul {}
+ .page-content li {}
+ .page-content li a {}
+
+ .page-content img {}
+
