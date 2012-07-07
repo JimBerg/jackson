@@ -2,7 +2,7 @@
     <?php 
     if( $post->post_type == 'post' ){
         echo '<ul>';
-        $archives = wp_get_archives('type=monthly');
+        $archives = wp_get_archives( 'type=monthly' );
         echo '</ul>';
     } else {
         if( $post->post_parent ) {
@@ -21,7 +21,7 @@
                         $active = 'inactive';
                     }
                 ?>
-                <li><a href="<?php echo get_permalink( $page->ID ); ?>" class="subnav-<?php echo $active; ?>">» <?php echo $page->post_title; ?></a></li>
+                <li><a href="<?php echo get_permalink( $page->ID ); ?>" class="subnav-<?php echo $active; ?>"><?php echo $page->post_title; ?></a></li>
             <?php endforeach; ?>
         </ul>
     <?php } ?>
