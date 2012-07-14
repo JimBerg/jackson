@@ -11,12 +11,6 @@
  
  <?php get_header(); ?>
  
- <div id="background_container"></div>
- <div id="wrapper">   
-    <div id="header">
-        <?php get_sidebar( 'top' ); ?>
-    </div>
-    
     <div id="content_wrapper">         
         <?php if( page_has_subpages( $post->ID ) ) : ?>
             <?php get_sidebar( 'left' ); ?>
@@ -24,17 +18,13 @@
     
         <div id="content" class="article">
         <?php if( $teaser = true ) : //TODO ?>
-             <div id="teaser">
-                 <span class="teaser-content">
-                    <h2 class="teaser-title">Teaser Dummy</h2>
-                    <h2 class="teaser-subtitle">20 Juli 2012</h2>  
-                 </span>
-             </div>
-         <?php endif; ?>     
+        	<?php get_template_part( 'teaser' ); ?>  
+        <?php endif; ?>     
           
-         <?php if ( have_posts() ) : ?>
+        <?php if ( have_posts() ) : ?>
             <div class="content"> 
             <h1><?php the_title(); ?></h1>
+            
             <?php $events = get_events(); ?>
 	        <?php foreach( $events as $event ): ?>
 	            <div class="event-container">
@@ -54,7 +44,5 @@
          <?php endif; ?>    
         </div> 
     </div>
-    <div id="footer">Sponsoren</div>
- </div>
  <?php get_footer(); ?>
 

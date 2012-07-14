@@ -4,7 +4,7 @@
  * 
  * Description: Theme for Jackson.ch
  * Author: Jim
- * Layout:
+ * Design:  
  * Version: 3.14159 * daumen
  * 
  * -------------------------------------------------*/ 
@@ -13,11 +13,13 @@
    * COLORS
    *     
    * Background:
+   * dunkelgrau: #3b3b3a;
    * braun: #a3897a;
    * türkisgrün: #7ba7a6;
-   * gelb:
-   * grau:
-   * 
+   * gelb: #fac062;
+   * grau: #868686;
+   * graugrün: #aabbad;
+   * dunkelgrün: #355361;
    * 
    * Schrift:
    * dunkel:    #3c3c3c
@@ -30,10 +32,12 @@
    *                                                 *
   ---------------------------------------------------*/ 
  
+ 
  /**  Fonts    					   					 *
   ---------------------------------------------------*/ 
   @font-face { font-family: BigNoodle; src: url('fonts/BigNoodle.ttf'); } 
   @font-face { font-family: BigNoodle; font-weight: bold; src: url('fonts/BigNoodle.ttf'); }
+  
   
  /**  General Styles & Typographic Presets 			 *
   ---------------------------------------------------*/ 
@@ -98,10 +102,24 @@
 
  #content_wrapper { margin: 0 auto; width: 960px; height: 100%; }
  #content { margin-left: 280px; width: 550px; padding: 0px 65px 0px 65px; position: relative; min-height: 100%; position: relative; float: left; background: #a3897a; }
- .content { margin: 140px 0 30px 0; }
+ .content { margin: 140px 0 80px 0; }
  
- #footer { z-index: 100; position: fixed; bottom: 0; /* height: 30px; width: 100%; background: #fff;*/ } /* not yet defined IE CHECK !! */
- 
+ #footer { 
+ 	z-index: 100; 
+ 	position: fixed; 
+ 	bottom: 0 /*-41px*/; 
+ 	width: 100%; 
+ 	height: 75px; 
+ 	background: url( 'images/footer_bknd.png' ) center 0px no-repeat; 
+ 	
+ 	/* I want to use at least one cool css3 effect 
+    -webkit-transition: all 0.5s ease-in;
+    -moz-transition: all 0.5s ease-in;
+    -o-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;*/
+ } 
+ #footer:hover { bottom: 0px; }
+
  .more { display: block; clear: both; width: 100%; text-align: right; }
  .more-link { margin: 15px 0 0px 0; font-family: BigNoodle; }
  .more-link:hover { color: #fff; }
@@ -109,7 +127,7 @@
  
  /** Teaser
  ---------------------------------------------------*/     
- #teaser { width: 225px; height: 120px; background: url('images/teaser_dummy.png') top right no-repeat; position: absolute; right: -26px; top: 120px; }
+ #teaser { width: 224px; height: 130px; background: url('images/teaser_bknd.png') top right no-repeat; position: absolute; right: -28px; top: 120px; }
  .teaser-content {
     display: block;
     padding: 0 0 0 30px;
@@ -117,17 +135,24 @@
     -webkit-transform: rotate( 7deg ); 
     -moz-transform: rotate( 7deg );
     -o-transform: rotate( 7deg ); 
-    -ms-transform: rotate( 7deg );
+    -ms-transform: rotate( 7deg ); /** haha I'm only joking **/
     transform: rotate( 7deg );
  }
  .teaser-title { font-size: 42px; color: #fff; margin: 24px 0 0 0; padding: 0; line-height: 42px;  }
  .teaser-subtitle { font-size: 24px; margin: 0; padding: 0; color: #0e0e0e; }
  
  
+ /** Footer Sponsoren
+ ---------------------------------------------------*/ 	
+ #footer ul { width: 970px; margin: 47px auto 0 auto; text-align: center; display: block; font-family: BigNoodle; }
+ #footer ul li { padding: 0 20px; }	
+ #footer ul li a { font-size: 16px; }
+ 
+ 
  /** Header 
   ---------------------------------------------------*/ 	
- #header { height: 120px; background: url( 'images/bknd_header_nav.png' ) top center no-repeat;  width: 100%; position: fixed; padding: 0; top: 0; z-index: 100; } /* fixed or absolute ? dummy */
- #header h1 { display: inline; font-size: 56px; margin-left: -15px; }
+ #header { height: 120px; background: url( 'images/bknd_header_nav.png' ) top center no-repeat;  width: 100%; position: fixed; padding: 0; top: 0; z-index: 100; } 
+ #header h1 { display: inline; font-size: 56px; margin-left: -25px; }
  #header h1 a{ color: #fff; }
  
  
@@ -135,38 +160,47 @@
   ---------------------------------------------------*/     
  #nav{ 
     width: 960px; 
-    margin: 0px auto 0 auto; 
+    margin: -5px auto 0 auto; 
     font-family: BigNoodle;
     display: block;
     
     transform: rotate( -2deg );
-    -ms-transform: rotate( -2deg );
+    -ms-transform: rotate( -2deg ); /* show me how you do it! */
     -webkit-transform: rotate( -2deg ); 
     -o-transform: rotate( -2deg ); 
     -moz-transform: rotate( -2deg ); 
  }
+ 
  ul#top-nav, 
  ul#top-nav li { display: inline; font-size: 26px; padding: 0 10px; }
  ul#top-nav li a.nav-inactive { color: #9b9b9b; }
  ul#top-nav li a.nav-active { color: #fff; font-size: 36px; }
  ul#top-nav li a:hover { color: #fff; }
   
- #subnav { width: 183px; width: 183px; position: fixed; margin: 460px 0 0 -40px; }
- #subnav ul { display: block; margin: 25px; }
+ #subnav { width: 183px; width: 183px; position: fixed; margin: 460px 0 0 -44px; }
+ #subnav ul { display: block; margin: 15px 25px; }
  #subnav li, 
  #subnav li a { color: #fff; font-family: BigNoodle; font-size: 24px; line-height: 28px; display: block; }
- #subnav li a.subnav-active { color: #ccc; }
+ #subnav li a:hover,
+ #subnav li a.subnav-active { color: #3b3b3a; }
+
 
  /** Subnavigation Hintergründe
  * Auswahl gemäss Artikelname
  ---------------------------------------------------*/
- .page-news #subnav { background: #a3897a; }
- .page-artikel #subnav { background: #7ba7a6; }
- .page-musik #subnav { background: #f2b313; }
- .page-biografie #subnav { background: #7ba700; }
- .page-mj-ich #subnav { background: #00a7a6; }
- .page-events #subnav { background: #7ba700; }
- .page-fanszene #subnav { background: #7baaaa; }
+ .page-news #subnav { background: url( 'images/subnav_bknd_brown.png' ) 1px top  no-repeat; width: 176px; height: 208px; }
+ .page-artikel #subnav { background: url( 'images/subnav_bknd_blue_green.png' ) 3px top no-repeat; width: 142px; height: 94px; }
+ .page-artikel #subnav ul { margin-top: 25px; }
+ 
+ .page-musik #subnav { background: url( 'images/subnav_bknd_yellow.png' ) left top no-repeat; width: 177px; height: 155px; }
+ .page-musik #subnav a { color: #3b3b3a; }
+ .page-musik #subnav a:hover,
+ .page-musik #subnav a.subnav-active { color: #fff; }
+ 
+ .page-biografie #subnav { background: url( 'images/subnav_bknd_grey_green.png' ) left top no-repeat; width: 176px; height: 156px; }
+ .page-mj-ich #subnav { background: url( 'images/subnav_grey.png' ) left top no-repeat; width: 177px; height: 155px; }
+ .page-events #subnav { background: url( 'images/subnav_dark_green.png' ) left top no-repeat; width: 176px; height: 208px; }
+ .page-fanszene #subnav { background: url( 'images/subnav_dark_green.png' ) left top no-repeat; width: 176px; height: 208px; }
  .page-shop #subnav { background: #aa99aa; }
  
  
@@ -180,17 +214,17 @@
  .nav-parent-page { text-align: center; margin-left: 130px; }
  .nav-next { text-align: right; margin-left: 260px; }
  
- 
+   
  /** Content Bereiche
  * Hintergrundfarben gemäss Artikelname
  ---------------------------------------------------*/
  .page-news #content { background: #a3897a; }
  .page-artikel #content { background: #7ba7a6; }
- .page-musik #content { background: #f2b313; }
- .page-biografie #content { background: #7ba700; }
- .page-mj-ich #content { background: #00a7a6; }
- .page-events #content { background: #7ba700; }
- .page-fanszene #content { background: #7baaaa; }
+ .page-musik #content { background: #fac062; }
+ .page-biografie #content { background: #aabbad; }
+ .page-mj-ich #content { background: #868686; }
+ .page-events #content { background: #355361; }
+ .page-fanszene #content { background: #355361; }
  .page-shop #content { background: #aa99aa; }
  
  
@@ -205,6 +239,7 @@
  .single-author { font-size: 36px; }
  
  .single-archive { border-bottom: 1px solid #ccc; padding: 20px 0; }
+ 
  
  /**  News == Blogartikel Styles					 *
   ---------------------------------------------------*/ 
@@ -230,7 +265,7 @@
   /**  Artikel Styles                                *
   ---------------------------------------------------*/
  .article-excerpt { border-bottom: 1px solid #ccc; padding: 20px 0; display: block; clear: both; float: left; }
- #content:last-child, .article-excerpt:last-of-type { border: none; }
+ #content:last-child, .article-excerpt:last-of-type { border: none; padding-bottom: 40px; }
  .article-header h2, .article-header h2 span { font-size: 20px; line-height: 20px; margin-bottom: 10px; } /* font size & lineheight check */
  .article-img { width: 120px; height: 120px; margin: 0px 10px 10px 0; float: left; display: block; background: #333; }
  .article-content { margin: 0px 0; display: block; float: left; width: 320px; }

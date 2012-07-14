@@ -42,7 +42,7 @@
     register_sidebars( 2 );
  }
  
- 
+
  /** 
  * output buffer - to display shortcode correctly
  * @return string $output_string, link for top button
@@ -166,4 +166,16 @@
     );
     return  $events = query_posts( $args );
  }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  

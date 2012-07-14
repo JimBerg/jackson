@@ -7,7 +7,19 @@
  * Version: 3.14159 * daumen
  * 
  * -------------------------------------------------*/ ?>
-
+	
+	
+ <div id="footer">
+	<ul>
+		<li><a href="">Sponsor 1</a></li>
+		<li><a href="">Sponsor 2</a></li>
+		<li><a href="">Sponsor 3</a></li>
+		<li><a href="">Sponsor 4</a></li>
+		<li><a href="">Sponsor 5</a></li>
+	</ul>
+ </div>
+ 
+ </div>
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 

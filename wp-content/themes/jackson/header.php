@@ -25,5 +25,14 @@
    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/reset.css">
    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.css">
  </head>
- <body <?php //body_class( $class = null ); ?>  class="page-<?php echo get_page_class(); ?>" >
+ 
+ <body class="page-<?php echo get_page_class(); ?>" >
+ 
  <a name="to_top" id="to_top"></a> 
+  
+ <div id="background_container"></div>
+ <div id="wrapper">
+ 	
+ 	<div id="header">
+ 		<?php get_sidebar( 'top' ); ?>
+ 	</div>
