@@ -41,7 +41,6 @@
  {
     register_sidebars( 2 );
  }
- 
 
  /** 
  * output buffer - to display shortcode correctly
@@ -72,7 +71,7 @@
  {
  	global $post;	
  	
- 	if( !$post->post_parent && $post->post_type == 'page' || $post->post_type == 'post' ) {
+ 	if( !$post->post_parent && $post->post_type == 'page' || $post->post_type == 'post' || $post->post_type == 'article_post_type') {
  		$child_pages_exist = get_pages( 'child_of='.$page_id );	
 		if( sizeof( $child_pages_exist ) > 0 ){
 	        return true;
@@ -167,14 +166,16 @@
     return  $events = query_posts( $args );
  }
  
- 
- 
- 
- 
- 
- 
- 
- 
+  /**
+ * convert date to format Tag. Monatsname Jahr
+ * @param string $date 
+ * @return string date
+ * -------------------------------------------------*/ 
+ function convert_date( $date ) 
+ {
+ 	$date = explode( '-', $date );
+	return date( 'd. F Y', mktime( 0, 0, 0, $date[1], $date[2], $date[0] ) );
+ }
  
  
  

@@ -11,11 +11,6 @@
 
  <?php get_header(); ?>
  
- <div id="background_container"></div>
- <div id="wrapper">
-    <div id="header">
-        <?php get_sidebar( 'top' ); ?>
-    </div>
     <div id="content_wrapper">         
         <?php if( page_has_subpages( $post->ID ) ) : ?> 
             <?php get_sidebar( 'left' ); ?>
@@ -35,20 +30,20 @@
                 
                 <div class="meta-nav">
                     <span class="nav-previous"><?php previous_post_link( '%link', __( '<span class="meta-nav">&larr;</span> Älterer Beitrag' ) ); ?></span>
-                    <span class="nav-parent-page"><a href="<?php echo home_url(); ?>">Zurück zur Newsseite</a></span>
+                    <span class="nav-parent-page"><a href="<?php echo get_permalink( get_page_by_title( 'Alben' )->ID ); ?>">Zurück zur Albenübersicht</a></span>
                     <span class="nav-next"><?php next_post_link( '%link', __( 'Neuerer Beitrag <span class="meta-nav">&rarr;</span>' ) ); ?></span>
                 </div>
-                
+        
                 <?php while ( have_posts() ) : the_post(); ?>
 		            <?php $meta = get_post_custom( $post->ID ); ?>
-		            <h2><?php the_title(); ?></span></h2>
-		            <h3><?php //TODO: year? Jahr ?></h3>
+		            <span class="single-header">
+                        <h2 class="single-title dark"><?php the_title(); ?></span></h2>
+                        <h3 class="single-author"><?php echo $meta[ 'album_year' ][0]; ?></h3>
+                    </span>
 		            <div><?php the_content(); ?></div>
 		        <?php endwhile; ?>
          	</div>
        <?php endif; ?>  
        </div> 
-    </div>    
-    <div id="footer">Sponsoren</div>
- </div>
+    </div>
  <?php get_footer(); ?>

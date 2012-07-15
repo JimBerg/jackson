@@ -24,7 +24,7 @@
    * Schrift:
    * dunkel:    #3c3c3c
    * hell:      #fff                                 
-   * 
+   * graugrün( Events ): #6e858d
    * 
    * 
    * 
@@ -67,11 +67,15 @@
   
   ul, li { font-size: 13px; line-height: 18px; list-style: none; display: inline; margin: 0; padding: 0; }
   
+  hr { border: 0; background-color: #fff; }
+  
  .clearer { clear: both; } 
  .dark { color: #3c3c3c; }
  .light { color: #fff; }
+ a > .light:hover, 
+ a:hover > .light { color: #3c3c3c; }
 
-
+ 
  /** General Layout Styles == All Posts & Pages		 *
   ---------------------------------------------------*/ 	
  #background_container { /* yeah we do need all those containers! */
@@ -102,23 +106,24 @@
 
  #content_wrapper { margin: 0 auto; width: 960px; height: 100%; }
  #content { margin-left: 280px; width: 550px; padding: 0px 65px 0px 65px; position: relative; min-height: 100%; position: relative; float: left; background: #a3897a; }
- .content { margin: 140px 0 80px 0; }
+ .content { margin: 140px 0 30px 0; }
  
  #footer { 
  	z-index: 100; 
  	position: fixed; 
- 	bottom: 0 /*-41px*/; 
+ 	bottom: -41px; 
  	width: 100%; 
  	height: 75px; 
- 	background: url( 'images/footer_bknd.png' ) center 0px no-repeat; 
- 	
- 	/* I want to use at least one cool css3 effect 
-    -webkit-transition: all 0.5s ease-in;
-    -moz-transition: all 0.5s ease-in;
-    -o-transition: all 0.5s ease-in;
-    transition: all 0.5s ease-in;*/
+ 	background: url( 'images/footer_bknd.png' ) center 0px no-repeat;
+ }
+ #footer.active {  	
+ 	/* I want to use at least one cool css3 effect */
+    -webkit-transition: all 0.35s ease-in;
+    -moz-transition: all 0.35s ease-in;
+    -o-transition: all 0.35s ease-in;
+    transition: all 0.35s ease-in;
  } 
- #footer:hover { bottom: 0px; }
+ #footer.active:hover { bottom: 0px; }
 
  .more { display: block; clear: both; width: 100%; text-align: right; }
  .more-link { margin: 15px 0 0px 0; font-family: BigNoodle; }
@@ -163,50 +168,72 @@
     margin: -5px auto 0 auto; 
     font-family: BigNoodle;
     display: block;
-    
-    transform: rotate( -2deg );
-    -ms-transform: rotate( -2deg ); /* show me how you do it! */
+
     -webkit-transform: rotate( -2deg ); 
-    -o-transform: rotate( -2deg ); 
     -moz-transform: rotate( -2deg ); 
+    -ms-transform: rotate( -2deg ); /* show me how you do it! */
+    -o-transform: rotate( -2deg ); 
+ 	transform: rotate( -2deg );
  }
  
  ul#top-nav, 
  ul#top-nav li { display: inline; font-size: 26px; padding: 0 10px; }
+ ul#top-nav li a {
+    -webkit-transition: color 0.15s ease-in;
+    -moz-transition: color 0.15s ease-in;
+    -ms-transition: color 0.15s ease-in;
+    -o-transition: color 0.15s ease-in;
+    transition: color 0.15s ease-in;	
+ }
  ul#top-nav li a.nav-inactive { color: #9b9b9b; }
  ul#top-nav li a.nav-active { color: #fff; font-size: 36px; }
  ul#top-nav li a:hover { color: #fff; }
   
- #subnav { width: 183px; width: 183px; position: fixed; margin: 460px 0 0 -44px; }
- #subnav ul { display: block; margin: 15px 25px; }
+ 
+ #subnav { position: fixed; margin: 380px 0 0 -44px; }
+ #subnav ul { display: block; margin: 12px 25px; }
  #subnav li, 
- #subnav li a { color: #fff; font-family: BigNoodle; font-size: 24px; line-height: 28px; display: block; }
+ #subnav li a { 
+ 	color: #fff; 
+ 	font-family: BigNoodle; 
+ 	font-size: 24px; 
+ 	line-height: 28px; 
+ 	display: block; 
+ 	
+ 	-webkit-transition: font-size 0.15s ease-in;
+    -moz-transition: font-size 0.15s ease-in;
+    -ms-transition: font-size 0.15s ease-in;
+    -o-transition: font-size 0.15s ease-in;
+    transition: font-size 0.15s ease-in;
+ }
  #subnav li a:hover,
- #subnav li a.subnav-active { color: #3b3b3a; }
+ #subnav li a.subnav-active { font-size: 28px; }
 
 
  /** Subnavigation Hintergründe
  * Auswahl gemäss Artikelname
  ---------------------------------------------------*/
  .page-news #subnav { background: url( 'images/subnav_bknd_brown.png' ) 1px top  no-repeat; width: 176px; height: 208px; }
+ .page-news #subnav ul { margin-top: 22px; }
+ 
  .page-artikel #subnav { background: url( 'images/subnav_bknd_blue_green.png' ) 3px top no-repeat; width: 142px; height: 94px; }
  .page-artikel #subnav ul { margin-top: 25px; }
  
- .page-musik #subnav { background: url( 'images/subnav_bknd_yellow.png' ) left top no-repeat; width: 177px; height: 155px; }
- .page-musik #subnav a { color: #3b3b3a; }
- .page-musik #subnav a:hover,
- .page-musik #subnav a.subnav-active { color: #fff; }
- 
+ .page-musik #subnav { background: url( 'images/subnav_bknd_yellow.png' ) left top no-repeat; width: 177px; height: 155px; } 
  .page-biografie #subnav { background: url( 'images/subnav_bknd_grey_green.png' ) left top no-repeat; width: 176px; height: 156px; }
  .page-mj-ich #subnav { background: url( 'images/subnav_grey.png' ) left top no-repeat; width: 177px; height: 155px; }
  .page-events #subnav { background: url( 'images/subnav_dark_green.png' ) left top no-repeat; width: 176px; height: 208px; }
  .page-fanszene #subnav { background: url( 'images/subnav_dark_green.png' ) left top no-repeat; width: 176px; height: 208px; }
  .page-shop #subnav { background: #aa99aa; }
  
+ .page-musik #subnav a,
+ .page-biografie #subnav a { color: #3b3b3a; }
+ 
  
  /** Metanavigation
   ---------------------------------------------------*/     
  div.meta-nav { clear: both; margin: 0 0 40px 0px; height: 80px; }
+ div.meta-nav.pages { margin: 40px 0 0 0; width: 100%; height: 40px; }
  .meta-nav { font-family: BigNoodle; }
  .meta-nav > span { display: block; width: 130px; position: absolute; }
  
@@ -214,14 +241,33 @@
  .nav-parent-page { text-align: center; margin-left: 130px; }
  .nav-next { text-align: right; margin-left: 260px; }
  
+ div.meta-nav.pages .nav-parent-page { margin-left: 215px; }
+ div.meta-nav.pages .nav-next { margin-left: 420px; }
+ 
+ .page-events div.meta-nav *, .page-events div.meta-nav > * { color: #6e858d; }
+ .page-events div.meta-nav a:hover { color: #fff; }
+ 
+ 
+ /**
+ * Hintergrundfbilder für einzelne Seiten
+ ---------------------------------------------------*/
+ .page-news #background_container { background: url( 'images/bknd_news.jpg') center bottom no-repeat; }
+ .page-artikel #background_container { background: url( 'images/bknd_artikel.jpg') center bottom no-repeat; }
+ .page-musik #background_container { background: url( 'images/bknd_musik.jpg') center bottom no-repeat; }
+ .page-biografie #background_container { background: url( 'images/bknd_biografie.jpg') center bottom  no-repeat; }
+ .page-mj-ich #background_container { background: url( 'images/bknd_mj_ich.jpg') center bottom no-repeat; }
+ .page-events #background_container { background: url( 'images/bknd_musik.jpg') center bottom no-repeat; }
+ .page-fanszene #background_container { background: url( 'images/bknd_news.jpg') center bottom  no-repeat; }
+ .page-shop #background_container { background: url( 'images/bknd_news.jpg') center bottom  no-repeat;  }
+ 
    
  /** Content Bereiche
  * Hintergrundfarben gemäss Artikelname
  ---------------------------------------------------*/
  .page-news #content { background: #a3897a; }
  .page-artikel #content { background: #7ba7a6; }
- .page-musik #content { background: #fac062; }
- .page-biografie #content { background: #aabbad; }
+ .page-musik #content { background: #fac062; color: #3b3b3a; }
+ .page-biografie #content { background: #aabbad; color: #3b3b3a; }
  .page-mj-ich #content { background: #868686; }
  .page-events #content { background: #355361; }
  .page-fanszene #content { background: #355361; }
@@ -268,7 +314,7 @@
  #content:last-child, .article-excerpt:last-of-type { border: none; padding-bottom: 40px; }
  .article-header h2, .article-header h2 span { font-size: 20px; line-height: 20px; margin-bottom: 10px; } /* font size & lineheight check */
  .article-img { width: 120px; height: 120px; margin: 0px 10px 10px 0; float: left; display: block; background: #333; }
- .article-content { margin: 0px 0; display: block; float: left; width: 320px; }
+ .article-content { margin: 0px 0; display: block; float: left; width: 420px; }
  
  
   /**  Page == Standard Textpage Styles              *
@@ -285,17 +331,19 @@
  
   /**  Event Overview Styles                         *
   ---------------------------------------------------*/ 
- .event-container { display: block; clear: both; float: left; margin: 0px; border-bottom: 1px solid #ccc; padding: 10px 0; }
+ .event-container { display: block; clear: both; float: left; margin: 0px; border-bottom: 1px solid #fff; padding: 10px 0; width: 100%; }
  #content:last-child, .news:last-of-type { border: none; }
  .event-description { width: 380px; float: left; }
- .event-description h2 {}
- .event-description h3 {}
+ .event-description h2, .event-description h2 a { font-size: 24px; margin-top: 0; color: #6e858d; }
+ .event-description h2 a:hover { color: #fff; }
+ .event-description h3, .event-description h3 a { font-size: 14px; font-family: Arial; text-transform: none; color: #fff; margin: 0; }
  .event-image { width: 120px; height: 120px; margin: 0; display: block; background: #333; float: right; }
- 
+ .event-detail-header { margin: 0 0 20px 0; padding: 10px 0; border-bottom: 1px solid #6e858d; float: left; clear: both; width: 100%; }
+
  
  /**  Presets for textcontent (filled in by user)    *
   ---------------------------------------------------*/ 
- .page-content {}
+ .page-content { clear: both; }
  
  .page-content h1 { font-size: 28px; }
  .page-content h2 {}
@@ -315,8 +363,16 @@
  .page-content blockquote {}
  
  .page-content ul { }
- .page-content li { list-style: disc; margin-left: 10px; display: block; line-height: 18px; }
+ .page-content li { list-style-image: square; margin-left: 10px; display: block; line-height: 18px; }
  .page-content li a {}
 
  .page-content img {}
+ 
+ .page-content .alignleft { float: left; padding: 0 10px 10px 0; }
+ .page-content .alignright { float: right; padding: 0 0 10px 10px; }
 
+  /* Event Page */
+ .page-events .page-content h1, 
+ .page-events .page-content h2, 
+ .page-events .page-content h3,
+ .page-events .page-content h4 { color: #6e858d; line-height: 22px; }

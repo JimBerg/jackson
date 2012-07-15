@@ -43,6 +43,22 @@ $meta_boxes[] = array(
 
 $meta_boxes[] = array(
     'id' => 'additional_settings',
+    'title' => 'Jahr des Albums',
+    'pages' => array( 'music_post_type' ),
+    'context' => 'normal',
+    'priority' => 'high',
+    'fields' => array(
+        array(
+            'name'      => '<span style="font-size: 16px;">Jahr des Albums</span>',   
+            'id'        => 'album_year',
+            'type'      => 'text',
+            'clone'     => false
+        )
+    )
+);
+
+$meta_boxes[] = array(
+    'id' => 'additional_settings',
     'title' => 'Events anlegen',
     'pages' => array( 'event_post_type' ),
     'context' => 'normal',

@@ -32,7 +32,7 @@
                     <span class="article-header">
                         <?php $meta = get_post_meta( $article->ID, 'article_subtitle' ); ?>
                         <?php if( !empty( $meta ) ) : ?>
-                        	<h2><?php echo get_the_title( $article->ID ); ?> - <span class="light"><?php echo $meta[0]; ?></span></h2>
+                        	<h2><a href="<?php echo get_permalink( $article->ID ); ?>" ><?php echo get_the_title( $article->ID ); ?> - <span class="light"><?php echo $meta[0]; ?></span></a></h2>
                         <?php else: ?>
                         	<h2><?php echo get_the_title( $article->ID ); ?></h2>
                         <?php endif; ?>		

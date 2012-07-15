@@ -13,9 +13,21 @@
                     array_push( $child_ids, $child_page->post_name );
                 }
 				
-				if(  $post->post_type == 'post'  || is_home() || is_front_page() ){
+				if( $post->post_type == 'post'  || is_home() || is_front_page() ){
 					$pagename = 'news';
 				} 
+				
+				if( $post->post_type == 'music_post_type' ){
+					$pagename = 'musik';
+				} 
+				
+				if( $post->post_type == 'article_post_type' ){
+					$pagename = 'artikel';
+				} 
+				
+				if( $post->post_type == 'event_post_type' ){
+					$pagename = 'events';
+				}  
 				
 				if( $current_id == $page_id || in_array( $pagename, $child_ids ) || $page->post_name == $pagename ) {
                     $active = 'active';

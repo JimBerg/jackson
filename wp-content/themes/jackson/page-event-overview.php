@@ -30,13 +30,12 @@
 	            <div class="event-container">
 	                <?php $meta = get_post_custom( $event->ID ); ?>
 	                <div class="event-description">
-	                    <h2 class="event-date"><?php echo $meta[ 'event_date' ][0]; ?></h2>
-	                    <h3 class="event-name"><a href="<?php echo get_permalink( $event->ID ); ?>"><?php echo $meta[ 'event_name' ][0]; ?></a></h3>
-	                    <h3 class="event-place"><a href="<?php echo get_permalink( $event->ID ); ?>"><?php echo $meta[ 'event_place' ][0]; ?></a></h3>
-	                    <p><?php echo $meta[ 'event_description' ][0]; ?></p>
+	                	<h2 class="event-date"><a href="<?php echo get_permalink( $event->ID ); ?>">Datum: <?php echo convert_date( $meta[ 'event_date' ][0] ); ?></a></h2>
+	                    <h3 class="event-name"><?php echo $meta[ 'event_name' ][0]; ?></a></h3>
+	                    <h3 class="event-place">Location: <a href="<?php echo get_permalink( $event->ID ); ?>"><?php echo $meta[ 'event_place' ][0]; ?></a></h3>
 	                </div>
 	                <div class="event-image">
-	                    <?php echo get_the_post_thumbnail( $event->ID ); ?>
+	                    <a href="<?php echo get_permalink( $event->ID ); ?>" ><?php echo get_the_post_thumbnail( $event->ID, array( 120, 120 ) ); ?></a>
 	                </div>
 	            </div>
 	        <?php endforeach; ?>

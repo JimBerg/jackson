@@ -39,7 +39,7 @@
         'publicly_queryable' => true,
         'show_ui' => true,
         'query_var' => true,
-        'rewrite' => true,
+        'rewrite' => array( 'slug' => 'artikeldetail' ),
         'capability_type' => 'page',
         'hierarchical' => false,
         'menu_position' => null,

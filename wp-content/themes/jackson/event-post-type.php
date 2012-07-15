@@ -33,7 +33,7 @@
         'publicly_queryable' => true,
         'show_ui' => true,
         'query_var' => true,
-        'rewrite' => true,
+        'rewrite' => array( 'slug' => 'eventdetail' ),
         'capability_type' => 'page',
         'hierarchical' => false,
         'menu_position' => null,
