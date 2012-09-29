@@ -15,7 +15,7 @@
 		
     } else {
         if( $post->post_parent ) {
-            $pages = get_pages( "title_li=&child_of=".$post->post_parent ); 
+            $pages = get_pages( "title_li=&child_of=".$post->post_parent );
         } else {
             $pages = get_pages( "title_li=&child_of=".$post->ID ); 
 			
@@ -28,6 +28,8 @@
 			}
         }    
         ?>
+        
+
         <ul>
             <?php foreach ( $pages as $page ) : ?>
                 <?php 

@@ -3,12 +3,16 @@
 	/** prevent webkit-transition on page load
 	 *------------------------------------------------------------------*/
 	$( document ).ready( function() {
-		$( '#footer' ).addClass( 'active' );	
+		$( '#footer' ).addClass( 'active' );
 	});
 	
 	/** hover, click, double click - all about events
 	 *------------------------------------------------------------------*/
-
+	$( '#content_wrapper' ).on( 'mousedown', function( event ) { 
+		if( event.which === 3 ) { 
+		//	alert( "rightclick" );
+		} 
+	});
 	
 	/** we want it smooth...
 	 *------------------------------------------------------------------*/
@@ -20,6 +24,8 @@
 		e.preventDefault();
 	});
 	
-	
+	/** shadowbox
+	*------------------------------------------------------------------*/
+	Shadowbox.init();
 	
 })( jQuery );

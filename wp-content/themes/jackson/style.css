@@ -58,7 +58,7 @@
   a:hover { color: #fff; }
     
   h1, h2, h3, h4 { font-family: BigNoodle; font-weight: normal; text-transform: uppercase; }
-  h1 { font-size: 140px; line-height: 120px; color: #fff; }
+  h1 { font-size: 96px; line-height: 60px; color: #fff; }
   h2 { color: #3c3c3c; }
   h3 { color: #3c3c3c; }
   
@@ -156,7 +156,7 @@
  
  /** Header 
   ---------------------------------------------------*/ 	
- #header { height: 120px; background: url( 'images/bknd_header_nav.png' ) top center no-repeat;  width: 100%; position: fixed; padding: 0; top: 0; z-index: 100; } 
+ #header { height: 110px; background: url( 'images/bknd_header_nav.png' ) top center no-repeat;  width: 100%; position: fixed; padding: 0; top: 0; z-index: 100; } 
  #header h1 { display: inline; font-size: 56px; margin-left: -25px; }
  #header h1 a{ color: #fff; }
  
@@ -165,7 +165,7 @@
   ---------------------------------------------------*/     
  #nav{ 
     width: 960px; 
-    margin: -5px auto 0 auto; 
+    margin: 20px auto 0 auto; 
     font-family: BigNoodle;
     display: block;
 
@@ -196,7 +196,7 @@
  #subnav li a { 
  	color: #fff; 
  	font-family: BigNoodle; 
- 	font-size: 24px; 
+ 	font-size: 20px; 
  	line-height: 28px; 
  	display: block; 
  	
@@ -207,7 +207,7 @@
     transition: font-size 0.15s ease-in;
  }
  #subnav li a:hover,
- #subnav li a.subnav-active { font-size: 28px; }
+ #subnav li a.subnav-active { font-size: 24px; }
 
 
  /** Subnavigation Hintergründe
@@ -276,13 +276,13 @@
  
  /** Detailviews == Single Templates                *
  ---------------------------------------------------*/ 
- .single-header { width: 410px; display: block; margin: 25px 0 70px 0; }
+ .single-header { width: 430px; display: block; margin: 0px 0 40px 0; }
  .single-header > * { margin: 0 0 15px 0; }
- .single-title { font-size: 64px; line-height: 64px; color: #fff; }
+ .single-title { font-size: 36px; line-height: 36px; color: #fff; }
  .single-title.dark{ color: #3c3c3c; }
- .single-title span { font-size: 64px; line-height: 64px; display: block; }
- .single-date { font-size: 36px; }
- .single-author { font-size: 36px; }
+ .single-title span { font-size: 36px; line-height: 36px; display: block; }
+ .single-date { font-size: 22px; }
+ .single-author { font-size: 22px; }
  
  .single-archive { border-bottom: 1px solid #ccc; padding: 20px 0; }
  
@@ -376,3 +376,29 @@
  .page-events .page-content h2, 
  .page-events .page-content h3,
  .page-events .page-content h4 { color: #6e858d; line-height: 22px; }
+ 
+
+ /**  Social Network Buttons					   	 *
+  ---------------------------------------------------*/
+ .social-networks { display: block; width: 100%; height: 40px; margin: 15px 0; float: right; } 
+ .social-networks > div { float: right; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

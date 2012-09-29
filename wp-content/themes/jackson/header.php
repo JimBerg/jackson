@@ -23,11 +23,20 @@
    <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/reset.css">
+   
+   <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/js/shadowbox/shadowbox.css">
    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.css">
  </head>
  
  <body class="page-<?php echo get_page_class(); ?>" >
- 
+ <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/de_DE/all.js#xfbml=1&appId=133122643384506";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
  <a name="to_top" id="to_top"></a> 
   
  <div id="background_container"></div>

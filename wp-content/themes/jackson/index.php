@@ -8,7 +8,6 @@
  * 
  * -------------------------------------------------*/ ?>
  <?php get_header(); ?>
-
  	<div id="content_wrapper">        
  		 
          <?php if( $subnav = true ) : //TODO ?>
@@ -29,10 +28,11 @@
         	 		<?php get_template_part( 'content-news', get_post_format() ); ?>
         	 	<?php endwhile; ?>
         	 	
-     	    	<?php get_template_part( 'pagination' ); ?>
+     	    	<?php get_template_part( 'pagination' ); ?> 
     	 	</div>
     	<?php endif; ?>
         </div> 
  	</div> 
 
  <?php get_footer(); ?>
+

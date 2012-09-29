@@ -42,6 +42,21 @@
     register_sidebars( 2 );
  }
 
+
+ /** 
+ * add shadowbox to each image postet within content
+ * @return string $content, replaced content
+ * -------------------------------------------------*/ 
+ add_filter( 'the_content', 'shadowbox' );
+ function shadowbox( $content ) {
+	   global $post;
+	   $pattern ="/<a(.*?)href=('|\")(.*?).(bmp|gif|jpeg|jpg|png)('|\")(.*?)>/i";
+	   $replacement = '<a$1href=$2$3.$4$5 rel="shadowbox[group]" title="'.$post->post_title.'"$6>';
+	   $content = preg_replace( $pattern, $replacement, $content );
+	   return $content;
+ }
+
+
  /** 
  * output buffer - to display shortcode correctly
  * @return string $output_string, link for top button
@@ -116,11 +131,12 @@
  * @param string article, whole bunch
  * @return string article, shorten 
  * -------------------------------------------------*/ 
- function article_excerpt( $article ) 
+ function article_excerpt( $article, $length = 300 ) 
  {
-    $article = str_split( $article, '310' ); //TODO: wordwrap or something similar ganze worte sonst umlaut probleme
+	$article = substr( $article, 0, strrpos( substr( $article, 0, $length ), ' ' ) );
     $article = $article[0];
     $article = preg_replace( '/<[a-zA-Z0-9]+>/', '', $article ); //remove html attributes from excerpt
+    $article = preg_replace( '/<img\s*[a-zA-Z0-9\/=\.\s\>]*/', '', $article ); // remove images the dirty way
     return $article; 
  }
 

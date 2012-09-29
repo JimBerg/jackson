@@ -14,24 +14,24 @@
 		<h2 class="news-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 		<span class="news-meta">
 			<h3 class="news-author"><?php echo get_the_author(); ?></h3>
+			<!-- optional: categories
 			<span class="news-categories">
-			    <!-- optional -->
 			    <?php 
     			    $cat_list = get_the_category_list( ' | ' );
                     if( $cat_list ) {
                         echo $cat_list;
                     }
                 ?>
-			</span>
+			</span> -->
+			<!-- optional: tags
 			<span class="news-tags">
-			    <!-- optional -->
 			     <?php 
                     $tag_list = get_the_tag_list( '', ' | ' );
                     if( $tag_list ) {
                         echo $tag_list;
                     }
                 ?>    
-			</span>
+			</span>-->
 		</span>
 	</div>	
 	
