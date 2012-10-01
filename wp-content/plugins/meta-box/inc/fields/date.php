@@ -1,11 +1,6 @@
 <?php
-// Prevent loading this file directly - Busted!
-if( ! class_exists('WP') )
-{
-	header( 'Status: 403 Forbidden' );
-	header( 'HTTP/1.1 403 Forbidden' );
-	exit;
-}
+// Prevent loading this file directly
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'RWMB_Date_Field' ) )
 {
@@ -41,13 +36,15 @@ if ( ! class_exists( 'RWMB_Date_Field' ) )
 		{
 			$name   = " name='{$field['field_name']}'";
 			$id     = isset( $field['clone'] ) && $field['clone'] ? '' : " id='{$field['id']}'";
+			$value  = " value='{$meta}'";
+			$size   = " size='{$field['size']}'";
 			$format = " rel='{$field['format']}'";
-			$val    = " value='{$meta}'";
-			$html   = "<input type='text' class='rwmb-date'{$name}{$id}{$format}{$val} size='30' />";
+
+			$html   = "<input type='text' class='rwmb-date'{$name}{$id}{$value}{$size}{$format} />";
 
 			return $html;
 		}
-		
+
 		/**
 		 * Normalize parameters for field
 		 *
@@ -58,6 +55,7 @@ if ( ! class_exists( 'RWMB_Date_Field' ) )
 		static function normalize_field( $field )
 		{
 			$field['format'] = empty( $field['format'] ) ? 'yy-mm-dd' : $field['format'];
+			$field['size']   = empty( $field['size'] ) ? 10 : $field['size'];
 			return $field;
 		}
 	}

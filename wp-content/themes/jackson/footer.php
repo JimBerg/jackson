@@ -10,13 +10,8 @@
 	
 	
  <div id="footer">
-	<ul>
-		<li><a href="">Sponsor 1</a></li>
-		<li><a href="">Sponsor 2</a></li>
-		<li><a href="">Sponsor 3</a></li>
-		<li><a href="">Sponsor 4</a></li>
-		<li><a href="">Sponsor 5</a></li>
-	</ul>
+ 	<span>Sponsoren</span>
+	<?php echo get_sponsor_links( get_bookmarks() ); ?>
  </div>
  
  </div>

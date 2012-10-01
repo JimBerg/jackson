@@ -14,6 +14,7 @@
  require_once( 'article-post-type.php' );  
  require_once( 'music-post-type.php' );  
  require_once( 'event-post-type.php' );  
+ require_once( 'custom-backend.php' );  
  
  /** shortcodes
  * -------------------------------------------------*/ 
@@ -48,15 +49,76 @@
  * @return string $content, replaced content
  * -------------------------------------------------*/ 
  add_filter( 'the_content', 'shadowbox' );
- function shadowbox( $content ) {
+ function shadowbox( $content ) 
+ {
 	   global $post;
 	   $pattern ="/<a(.*?)href=('|\")(.*?).(bmp|gif|jpeg|jpg|png)('|\")(.*?)>/i";
 	   $replacement = '<a$1href=$2$3.$4$5 rel="shadowbox[group]" title="'.$post->post_title.'"$6>';
 	   $content = preg_replace( $pattern, $replacement, $content );
 	   return $content;
  }
-
-
+ 
+ /** 
+ * same replacement for event post type
+ * -------------------------------------------------*/ 
+ function replace_image_links( $content ) 
+ {
+	$pattern ="/<a\s*href=('|\")([\w*\d*\/*\-*\_*\=*\?*\:*\.*]*)('|\")/i";
+	$replacement = '<a href=$1$2$3 rel="shadowbox[]" width="100%" height="100%"';
+	$content = preg_replace( $pattern, $replacement, $content );
+	return $content;
+ }
+ 
+ /** 
+ * breaks title after specific char, set to | 
+ * @return string $title
+ * -------------------------------------------------*/ 
+ add_filter( 'the_title', 'line_break' );
+ function line_break( $title ) 
+ {
+	   global $post;
+	   $pattern ="/\|/i";
+	   $replacement = '<br />';
+	   $title = preg_replace( $pattern, $replacement, $title );
+	   return $title;
+ }
+ 
+ 
+  /** 
+ * mark current month active in archive listing
+ * @param $lin, generated url 
+ * @return $link, <li>$url...
+ * -------------------------------------------------*/ 
+ add_filter( 'get_archives_link', 'active_month' );
+ function active_month( $link ) 
+ {
+ 	global $wp;
+    static $active_url;
+    if ( empty( $active_url ) ) {
+        $active_url = add_query_arg( $_SERVER['QUERY_STRING'], '', home_url( $wp->request ) );
+    }
+   
+    if ( stristr( $link, $active_url ) !== false ) {
+		/*$pattern = "/^<li><a\s*\w*\=?\"?([\w*\:?\/*\d*\.*]*)\"?\s*(\w*\=*\"*\w*\s*\d*\"*)\s*>/i";
+		$replacement = '<li><a href=\"$1\" $2 class="subnav-active">';
+		$link = preg_replace( $pattern, $replacement, $link ); //it's not replaced, why??*/
+		
+		//ugly stuff here...
+		$namepattern = '/title\=?\"?([\w*|\W*\s*\d*]*)\"?$/i';
+		preg_match( $namepattern, $link , $match );
+		$linkname = str_replace('\'', '', $match[1] );
+		$linkname = explode( '>', $linkname );
+		
+		$pattern = '/([\w*\:?\/*\d*\.*]*)/i';
+		$replacement = '$1';
+		$href = preg_replace( $pattern, $replacement, $active_url );
+		
+		$link = '<li><a href="'.$href.'" class="subnav-active">'.$linkname[0].'</a></li>';
+   	}
+ 	return $link;
+ }
+ 
+ 
  /** 
  * output buffer - to display shortcode correctly
  * @return string $output_string, link for top button
@@ -77,6 +139,7 @@
  	echo '<a href="#to_top" class="page-top-button">to top</a>';
  }
  
+ 
   /** 
   * check if page has subpages 
   * @param int $page, page id
@@ -86,7 +149,11 @@
  {
  	global $post;	
  	
- 	if( !$post->post_parent && $post->post_type == 'page' || $post->post_type == 'post' || $post->post_type == 'article_post_type') {
+ 	$parent = get_page( $post->post_parent ); /* grandchildren check */
+    if( $parent->post_parent != 0 ) {
+    	 return false;
+	}
+ 	if( !$post->post_parent && $post->post_type == 'page' || $post->post_type == 'post' || $post->post_type == 'article_post_type'|| $post->post_type == 'music_post_type' ) {
  		$child_pages_exist = get_pages( 'child_of='.$page_id );	
 		if( sizeof( $child_pages_exist ) > 0 ){
 	        return true;
@@ -95,6 +162,23 @@
 	    }
  	} else {
  		return true;
+ 	}
+ }
+ 
+   /** 
+  * grandchildrencheck
+  * @param int $page, page id
+  * @return bool, wheter child pages exist
+  * -------------------------------------------------*/
+ function page_is_grandchildren( $page_id ) 
+ {
+ 	global $post;	
+ 	
+ 	$parent = get_page( $post->post_parent ); /* grandchildren check */
+    if( $parent->post_parent != 0 ) {
+    	 return true;
+ 	} else {
+ 		return false;
  	}
  }
  
@@ -119,6 +203,11 @@
 		$parent = get_post( $post->post_parent );
 		$pagename = $parent->post_name;
 	}
+	
+	if( $pagename == 'discographie' || $pagename == 'reviews' || $pagename == 'alben' || $pagename == 'musiker' || get_post( $post->post_parent )->post_name == 'featurings' ) {
+		$pagename = 'musik';
+	}
+	
  	$pagename = strtolower( trim( preg_replace( '/[&%\$\s*]/', '-', $pagename) ) ); //just to make sure
 	return $pagename;
   }
@@ -191,6 +280,36 @@
  {
  	$date = explode( '-', $date );
 	return date( 'd. F Y', mktime( 0, 0, 0, $date[1], $date[2], $date[0] ) );
+ }
+ 
+ 
+ 
+ /**
+ * default layout for shop columns
+ * @param $content
+ * @return $content
+ * -------------------------------------------------*/ 
+ add_filter( 'default_content', 'shop_column_content' );
+ function shop_column_content( $content ) 
+ {
+ 	
+	
+ }
+ 
+ /**
+ * create sponsor links in footer
+ * @param array $bookmarks
+ * @return string as formatted list
+ * -------------------------------------------------*/ 
+ function get_sponsor_links( $bookmarks )
+ {
+ 	$ul = '<ul>';
+ 	foreach( $bookmarks as $item ) {
+ 		$ul .= '<li>';
+		$ul .= '<a href="'.$item->link_url.'" target="'.$item->link_target.'">'.$item->link_name.'</a></li>';
+ 	}
+	$ul .= '</ul>';
+	return $ul;
  }
  
  

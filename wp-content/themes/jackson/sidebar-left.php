@@ -33,25 +33,30 @@
         <ul>
             <?php foreach ( $pages as $page ) : ?>
                 <?php 
-                	$pagename = get_query_var( 'pagename' );
-					$page->post_name;
-					
-					if( $post->post_type == 'article_post_type' ){
-						 $pagename = 'artikel';
-					}
-					
-					if( $post->post_type == 'music_post_type' ){
-						 $pagename = 'alben';
-					}
-					
-					if( $post->post_type == 'event_post_type' ){
-						 $pagename = 'events';
-					}					
-                    if( $pagename == $page->post_name ) {
-                        $active = 'active';
-                    } else {
-                        $active = 'inactive';
-                    }
+					$parent = get_page( $page->post_parent );
+                    if( $parent->post_parent != 0 ) {
+                    	continue;
+					} else {
+		            	$pagename = get_query_var( 'pagename' );
+						$page->post_name;
+						
+						if( $post->post_type == 'article_post_type' ){
+							 $pagename = 'artikel';
+						}
+						
+						if( $post->post_type == 'music_post_type' ){
+							 $pagename = 'alben';
+						}
+						
+						if( $post->post_type == 'event_post_type' ){
+							 $pagename = 'events';
+						}					
+		                if( $pagename == $page->post_name ) {
+		                    $active = 'active';
+		                } else {
+		                    $active = 'inactive';
+		                }
+		            }
 					
                 ?>
                 <li><a href="<?php echo get_permalink( $page->ID ); ?>" class="subnav-<?php echo $active; ?>"><?php echo $page->post_title; ?></a></li>

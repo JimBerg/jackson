@@ -22,6 +22,7 @@
      	      	 
      	 <?php if ( have_posts() ) : ?>
      	    <div class="content">
+     	    	<?php //get_search_form(); ?>
          	 	<h1><?php echo get_the_title( get_option( 'page_for_posts', true ) ); ?></h1>
          	 	
         	 	<?php while ( have_posts() ) : the_post(); ?>

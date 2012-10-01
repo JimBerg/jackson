@@ -12,7 +12,6 @@
  * 
  * -------------------------------------------------*/ ?>
  <?php get_header(); ?>
-
     <div id="content_wrapper">         
         <?php if( page_has_subpages( $post->ID ) ) : ?>
             <?php get_sidebar( 'left' ); ?>
@@ -30,7 +29,7 @@
             <?php foreach( $articles as $article ): ?>
                 <div class="article-excerpt">
                     <span class="article-header">
-                        <?php $meta = get_post_meta( $article->ID, 'article_subtitle' ); ?>
+                    	<?php $meta = get_post_meta( $article->ID, 'article_subtitle' ); ?>
                         <?php if( !empty( $meta ) ) : ?>
                         	<h2><a href="<?php echo get_permalink( $article->ID ); ?>" ><?php echo get_the_title( $article->ID ); ?> - <span class="light"><?php echo $meta[0]; ?></span></a></h2>
                         <?php else: ?>

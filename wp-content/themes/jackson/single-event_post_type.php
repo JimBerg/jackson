@@ -41,7 +41,8 @@
 		                  	<?php echo get_the_post_thumbnail( $post->ID, array( 120, 120 ) ); ?>
 		                </div>
 	               </div>
-		           <div class="page-content"><?php echo $meta[ 'event_description' ][0]; ?></div>
+		           <div class="page-content"><?php echo replace_image_links( $meta[ 'event_description' ][0] ); ?></div>
+		           <div class="social-networks"><?php get_template_part( 'social-networks' ); ?></div>
 		        <?php endwhile; ?>
          	</div>
        <?php endif; ?>  

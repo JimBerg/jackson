@@ -11,7 +11,7 @@
  
  <?php get_header(); ?>
         
-    <div id="content_wrapper">         
+    <div id="content_wrapper"> 
         <?php if( page_has_subpages( $post->ID ) ) : ?>
             <?php get_sidebar( 'left' ); ?>
         <?php endif; ?>    
@@ -21,10 +21,15 @@
             	<?php get_template_part( 'teaser' ); ?>   
             <?php endif; ?>   
             
-            <?php if ( have_posts() ) : ?>
-                
+            <?php if ( have_posts() ) : ?> 
                 <div class="content">
+                <?php if( page_is_grandchildren( $post->ID ) ) : ?>
+			       <div class="meta-nav">
+	                    <span class="nav-parent-page grandchildren"><a href="<?php echo get_permalink( $post->post_parent ); ?>">Zurück</a></span>
+	               </div>
+		        <?php endif; ?> 	
                 <h1><?php the_title(); ?></h1>
+            
                 <?php while ( have_posts() ) : the_post(); ?>
                     <div class="page-subheader">
                         <h2 class="page-title"><?php //Titel ?></h2>
@@ -32,7 +37,7 @@
                         <h3 class="page-author"><?php //author ?></h3>
                     </div>
                     <div class="page-content">
-                        <?php the_content(); ?>
+                    	<?php the_content(); ?>
                     </div>
                 <?php endwhile; ?>
                 </div>

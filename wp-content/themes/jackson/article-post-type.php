@@ -7,12 +7,7 @@
  * Version: 3.14159 * daumen
  * 
  * -------------------------------------------------*/ 
- 
- /**
- * Register Custom Taxonomy
- *-------------------------------------*/
- //register_taxonomy( 'artist-category', array( 'agkunstbern_artist' ), array("hierarchical" => true, "label" => "Künstlerkategorie", "singular_label" => "Künstlerkategorie", "rewrite" => true) ); 
- 
+
  /**
  * Register Custom Post Type
  *-------------------------------------*/

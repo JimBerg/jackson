@@ -24,7 +24,6 @@
          
         <?php if ( have_posts() ) : ?>
             <div class="content">
-                
                 <div class="meta-nav">
                     <span class="nav-previous"><?php previous_post_link( '%link', __( '<span class="meta-nav">&larr;</span> Älterer Beitrag' ) ); ?></span>
                     <span class="nav-parent-page"><a href="<?php echo home_url(); ?>">Zurück zur Newsseite</a></span>
