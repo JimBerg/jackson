@@ -123,7 +123,7 @@
     -o-transition: all 0.35s ease-in;
     transition: all 0.35s ease-in;
  } 
- #footer.active:hover { bottom: 0px; }
+ /*#footer.active:hover { bottom: 0px; } replace with click event*/
 
  .more { display: block; clear: both; width: 100%; text-align: right; }
  .more-link { margin: 15px 0 0px 0; font-family: BigNoodle; }
@@ -249,16 +249,16 @@
  
  
  /**
- * Hintergrundfbilder für einzelne Seiten
+ * Hintergrundbilder für einzelne Seiten
  ---------------------------------------------------*/
- .page-news #background_container { background: url( 'images/bknd_news.jpg') center bottom no-repeat; }
- .page-artikel #background_container { background: url( 'images/bknd_artikel.jpg') center bottom no-repeat; }
- .page-musik #background_container { background: url( 'images/bknd_musik.jpg') center bottom no-repeat; }
- .page-biografie #background_container { background: url( 'images/bknd_biografie.jpg') center bottom  no-repeat; }
- .page-mj-ich #background_container { background: url( 'images/bknd_mj_ich.jpg') center bottom no-repeat; }
- .page-events #background_container { background: url( 'images/bknd_musik.jpg') center bottom no-repeat; }
- .page-fanszene #background_container { background: url( 'images/bknd_news.jpg') center bottom  no-repeat; }
- .page-shop #background_container { background: url( 'images/bknd_news.jpg') center bottom  no-repeat;  }
+ .page-news #background_container { background: url( 'images/bknd_news.jpg') left top no-repeat; }
+ .page-artikel #background_container { background: url( 'images/bknd_artikel.jpg') left top no-repeat; }
+ .page-musik #background_container { background: url( 'images/bknd_musik.jpg') left top no-repeat; }
+ .page-biografie #background_container { background: url( 'images/bknd_biografie.jpg') left top no-repeat; }
+ .page-mj-ich #background_container { background: url( 'images/bknd_mj_ich.jpg') left top no-repeat; }
+ .page-events #background_container { background: url( 'images/bknd_musik.jpg') left top no-repeat; }
+ .page-fanszene #background_container { background: url( 'images/bknd_news.jpg') left top no-repeat; }
+ .page-shop #background_container { background: url( 'images/bknd_news.jpg') left top no-repeat;  }
  
    
  /** Content Bereiche

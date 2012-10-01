@@ -134,9 +134,9 @@
  function article_excerpt( $article, $length = 300 ) 
  {
 	$article = substr( $article, 0, strrpos( substr( $article, 0, $length ), ' ' ) );
-    $article = $article[0];
     $article = preg_replace( '/<[a-zA-Z0-9]+>/', '', $article ); //remove html attributes from excerpt
-    $article = preg_replace( '/<img\s*[a-zA-Z0-9\/=\.\s\>]*/', '', $article ); // remove images the dirty way
+    // $article = preg_replace( '/<img\s*[a-zA-Z0-9\/=\.\s\>]*/', '', $article ); // remove images the dirty way
+    $article = $article.'...';
     return $article; 
  }
 
