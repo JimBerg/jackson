@@ -8,6 +8,7 @@
 		$( '#footer' ).addClass( 'active' );
 	});
 	
+	
 	/** click on footer
 	 *------------------------------------------------------------------*/
 	$( '#footer' ).on( 'click', function() {	
@@ -19,6 +20,7 @@
 		open = !open;
 	});
 	
+	
 	/** hover, click, double click - all about events
 	 *------------------------------------------------------------------*/
 	$( '#content_wrapper' ).on( 'mousedown', function( event ) { 
@@ -26,6 +28,7 @@
 		//	alert( "rightclick" );
 		} 
 	});
+	
 	
 	/** we want it smooth...
 	 *------------------------------------------------------------------*/
@@ -36,6 +39,18 @@
 		$( 'html, body' ).animate( { scrollTop: target }, 900, 'swing' );
 		e.preventDefault();
 	});
+	
+		
+	/** suche
+	 *------------------------------------------------------------------*/
+	$( '#s' ).on( 'focus', function(){
+		$( this ).val('');	
+	});
+	
+	$( '#s' ).on( 'blur', function(){
+		$( this ).val('Suche');	
+	});
+	
 	
 	/** shadowbox
 	*------------------------------------------------------------------*/

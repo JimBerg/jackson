@@ -18,12 +18,7 @@
 
         <div id="content" class="article">  
         <?php if( $teaser = true ) : //TODO ?>
-        <div id="teaser">
-             <span class="teaser-content">
-                <h2 class="teaser-title">Teaser Dummy</h2>
-                <h2 class="teaser-subtitle">20 Juli 2012</h2>  
-             </span>
-        </div>
+        	<?php get_sidebar( 'teaser' ); ?>
         <?php endif; ?>
         <?php if ( have_posts() ) : ?>
             <div class="content">

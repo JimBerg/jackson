@@ -18,7 +18,7 @@
          
         <div id="content" class="page">  
             <?php if( $teaser = true ) : //TODO ?>
-            	<?php get_template_part( 'teaser' ); ?>   
+            	<?php get_sidebar( 'teaser' ); ?>
             <?php endif; ?>   
             
             <?php if ( have_posts() ) : ?> 

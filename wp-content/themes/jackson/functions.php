@@ -40,7 +40,7 @@
  * -------------------------------------------------*/ 
  if ( function_exists('register_sidebars') ) 
  {
-    register_sidebars( 2 );
+    register_sidebars( 3 );
  }
 
 
@@ -186,9 +186,12 @@
   * set css class of body for backgrounds
   * @return string $pageclass, name of page
   * -------------------------------------------------*/ 
-  function get_page_class() {
+  function get_page_class( $search = false ) {
   	global $post;
-
+	
+	if ( $search == true ) {
+		return 'news';
+	}
 	if(  $post->post_type == 'post'  || is_home() || is_front_page() ){
 		$pagename = 'news'; 			
 	} else if(  $post->post_type == 'article_post_type' ) {

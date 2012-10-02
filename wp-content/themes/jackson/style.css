@@ -151,11 +151,17 @@
  } 
  /*#footer.active:hover { bottom: 0px; } replace with click event*/
 
- .more { display: block; clear: both; width: 100%; text-align: right; </inline}
+ .more { display: block; clear: both; width: 100%; text-align: right;}
  .more-link { margin: 15px 0 0px 0; font-family: BigNoodle; }
  .more-link:hover { color: #fff; }
  
  
+ /** Search 
+ ---------------------------------------------------*/   
+ #search-container { display: block; height: 60px; width: 400px; }
+ #search-container form label { font-family: BigNoodle; color: #3b3b3a; font-size: 16px; padding: 0; line-height: 40px; display: none; }
+ #search-container form input { border: 1px solid #68564b; width: 140px; height: 20px; padding: 2px 4px; border-radius: 3px; background: #e0d7d2;  }
+ #search-container form input[type="submit"] { height: 26px; font-family: BigNoodle; color: #3b3b3a; font-size: 16px; line-height: 24px; padding: 3px 0px; width: 60px; display: none; }
  /** Teaser
  ---------------------------------------------------*/     
  #teaser { width: 224px; height: 130px; background: url('images/teaser_bknd.png') top right no-repeat; position: absolute; right: -28px; top: 120px; }
@@ -172,6 +178,7 @@
  .teaser-title { font-size: 42px; color: #fff; margin: 24px 0 0 0; padding: 0; line-height: 42px;  }
  .teaser-subtitle { font-size: 24px; margin: 0; padding: 0; color: #0e0e0e; }
  
+ .widgettitle { display: none; }
  
  /** Footer Sponsoren
  ---------------------------------------------------*/ 	

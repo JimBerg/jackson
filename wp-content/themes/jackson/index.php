@@ -17,13 +17,14 @@
      	<div id="content" class="news">
      	
      	<?php if( $teaser = true ) : //TODO ?>
-     		<?php get_template_part( 'teaser' ); ?>   	 
+     		<?php get_sidebar( 'teaser' ); ?>	 
      	<?php endif; ?>
      	      	 
      	 <?php if ( have_posts() ) : ?>
      	    <div class="content">
-     	    	<?php //get_search_form(); ?>
          	 	<h1><?php echo get_the_title( get_option( 'page_for_posts', true ) ); ?></h1>
+         	 	
+         	 	<div id="search-container"><?php get_search_form(); ?></div>  
          	 	
         	 	<?php while ( have_posts() ) : the_post(); ?>
         	 		<?php get_template_part( 'content-news', get_post_format() ); ?>
