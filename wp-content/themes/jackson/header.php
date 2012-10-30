@@ -27,8 +27,8 @@
    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/js/shadowbox/shadowbox.css">
    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.css">
  </head>
- 
- <body class="page-<?php echo get_page_class(); ?>" >
+<?php if( is_search() ) { $search = true; } else { $search = false; } ?>
+ <body class="page-<?php echo get_page_class( $search ); ?>" >
  <div id="fb-root"></div>
  <script>(function(d, s, id) {
   	var js, fjs = d.getElementsByTagName(s)[0];
